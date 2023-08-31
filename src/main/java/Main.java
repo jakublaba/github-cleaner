@@ -27,7 +27,22 @@ public class Main {
                 "java-fundamentals-methods",
                 "java-fundamentals-constructors-overloading",
                 "java-fundamentals-class-members",
-                "java-fundamentals-primitive-types"
+                "java-fundamentals-primitive-types",
+                "angular-greengrocers",
+                "angular-todo-list",
+                "angular-address-book",
+                "angular-routing-workshop",
+                "angular-friends-list",
+                "ood-bank-challenge",
+                "tdd-bobs-bagels",
+                "ts-oop-polymorphism",
+                "js-poker-challenge",
+                "js-fundamentals-functions-3",
+                "js-fundamentals-functions-2",
+                "js-fundamentals-functions-1",
+                "js-fundamentals-loops",
+                "js-fundamentals-objects "
+
         );
         var owner = GhCleanerConfig.builder()
                 .username(DOTENV.get("GH_USERNAME"))
