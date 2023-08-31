@@ -1,38 +1,21 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import http.GhCleaner;
 import io.github.cdimascio.dotenv.Dotenv;
 import model.GhCleanerConfig;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
     private static final Dotenv DOTENV = Dotenv.load();
+    private static final ObjectMapper objMapper = new ObjectMapper();
 
-    public static void main(String[] args) {
-        var repos = List.of(
-                "js-fundamentals-arrays",
-                "js-fundamentals-variables",
-                "java-tdd-oop-bank-challenge",
-                "java-tdd-oop-bobs-bagels",
-                "java-tdd-oop-inheritance",
-                "java-tdd-opp-abstraction",
-                "java-tdd-oop-encapsulation",
-                "java-tdd-bobs-bagels",
-                "java-tdd-todo-list",
-                "java-scrabble-challenge",
-                "java-fundamentals-maps",
-                "java-fundamentals-lists",
-                "java-fundamentals-loops",
-                "java-fundamentals-strings",
-                "java-fundamentals-control-flow",
-                "java-fundamentals-methods",
-                "java-fundamentals-constructors-overloading",
-                "java-fundamentals-class-members",
-                "java-fundamentals-primitive-types"
-        );
+    public static void main(String[] args) throws IOException {
+        var repos = objMapper.readValue(Main.class.getClassLoader().getResourceAsStream("repos.json"), String[].class);
         var owner = GhCleanerConfig.builder()
                 .username(DOTENV.get("GH_USERNAME"))
                 .authToken(DOTENV.get("GH_AUTH_TOKEN"))
-                .repos(repos)
+                .repos(Arrays.asList(repos))
                 .build();
         var ghCleaner = new GhCleaner(owner);
         ghCleaner.clean();
