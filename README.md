@@ -14,5 +14,4 @@ GH_USERNAME=<your github username>
 GH_AUTH_TOKEN=<your github api access token>
 ```
 
-After that, adjust list of name of the repos you want to delete in the `repos` variable in `Main.java` file. \
-It's a lazy approach, I know, maybe later I will improve this to read repos from some config file.
+To set list of repositories to delete, provide them using the `repos.json` file in project's resources directory.
