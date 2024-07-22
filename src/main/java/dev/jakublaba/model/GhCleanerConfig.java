@@ -1,4 +1,4 @@
-package model;
+package dev.jakublaba.model;
 
 import lombok.Builder;
 

@@ -1,8 +1,8 @@
-package http;
+package dev.jakublaba.http;
 
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import model.GhCleanerConfig;
+import dev.jakublaba.model.GhCleanerConfig;
 
 import java.net.URI;
 import java.net.http.HttpClient;
